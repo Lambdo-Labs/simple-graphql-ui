@@ -3,6 +3,7 @@
 This template should help get you started developing with Vue 3 in Vite.
 
 Should be based off of:
+- https://github.com/jonathanawesome/graphiql-prototype
 - https://www.figma.com/file/p8f8MaG7ZRnuCc4lVv7w6t/GraphiQL-2.0?node-id=0%3A1
 - https://github.com/graphql/graphiql/tree/main/packages/graphiql-react
 
