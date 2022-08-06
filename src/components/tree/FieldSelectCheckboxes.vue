@@ -1,10 +1,10 @@
 <template>
-  <div class="px-4">
+  <div :class="props.paddingClass">
     <div v-if="!isRoot">
       <input
         type="checkbox"
         :id="`${depth}-${field.name}`"
-        class="checkbox checkbox-xs"
+        :class="props.checkboxClass"
         v-model="isFieldSelected"
         :indeterminate="fields && isFieldSelected"
       />
@@ -16,6 +16,7 @@
     <div v-if="isFieldSelected">
       <div v-for="childField in fields" :key="childField.name">
         <FieldView
+          :checkbox-class="props.checkboxClass"
           v-model:parent-selection-set-node="fieldSelectionSet.selectionSet"
           :field="childField"
           :depth="depth + 1"
@@ -28,12 +29,12 @@
 
 <script setup lang="ts">
 import { unwrapOutputType } from "@/helper";
-import FieldView from "./FieldView.vue";
+import FieldView from "./FieldSelectCheckboxes.vue";
 import type { Field, GraphQLSelectionSetNode } from "@/types";
 import { isInterfaceType, isObjectType } from "graphql";
-import { useFieldSelectionSet } from "./FieldSelectionSet";
+import { useFieldSelectionSet } from "@/composables/FieldSelectionSet";
 import { computed, ref } from "vue";
-import { useDisplayFieldName } from "./DisplayFieldName";
+import { useDisplayFieldName } from "@/composables/DisplayFieldName";
 // type Selections = ReadonlyArray<SelectionNode>;
 
 const props = defineProps<{
@@ -41,6 +42,8 @@ const props = defineProps<{
   depth: number;
   parentSelectionSetNode: GraphQLSelectionSetNode;
   fieldRenames?: Record<string, string>;
+  checkboxClass?: string;
+  paddingClass?: string;
 }>();
 
 const { displayFieldName } = useDisplayFieldName(

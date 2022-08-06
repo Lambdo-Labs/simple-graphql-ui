@@ -1,12 +1,14 @@
 <template>
-  <!-- <div>{{ queryTypeFields }}</div> -->
   <FieldSelect
     v-model="selectedField"
     :fields="queryTypeFields"
     :fieldRenames="fieldRenames"
+    :select-class="props.selectClass"
   />
   <div v-if="selectedFieldObject && selectionSet">
     <FieldView
+      :checkbox-class="props.checkboxClass"
+      :padding-class="props.paddingClass"
       :fieldRenames="fieldRenames"
       :parent-selection-set-node="selectionSet"
       :field="selectedFieldObject"
@@ -17,10 +19,10 @@
 
 <script setup lang="ts">
 import { buildClientSchema, type IntrospectionQuery } from "graphql";
-import FieldSelect from "./tree/FieldSelect.vue";
-import FieldView from "./tree/FieldView.vue";
+import FieldSelect from "./tree/FieldSelectOption.vue";
+import FieldView from "./tree/FieldSelectCheckboxes.vue";
 import { ref, computed } from "vue";
-import { useGraphqlStore } from "@/GraphqlStore";
+import { useGraphqlStore } from "@/composables/GraphqlStore";
 
 const props = defineProps<{
   schema?: { data: IntrospectionQuery };
@@ -30,6 +32,10 @@ const props = defineProps<{
   // inputValueDeprecation?: boolean;
   // introspectionQueryName?: string;
   // schemaDescription?: boolean;
+  //classes
+  checkboxClass?: string;
+  paddingClass?: string;
+  selectClass?: string;
 }>();
 
 const {
@@ -89,55 +95,4 @@ watch(selectedFieldObject, (newValue) => {
     setRootSelectionSet(newValue.name);
   }
 });
-// watchEffect(() => {
-//   console.log(schema.value);
-// });
-
-// TODO get schema from introscpection query
-
-// type IntrospectionArgs = {
-//   inputValueDeprecation?: boolean;
-//   introspectionQueryName?: string;
-//   schemaDescription?: boolean;
-// };
-
-// function useIntrospectionQuery({
-//   inputValueDeprecation,
-//   introspectionQueryName,
-//   schemaDescription,
-// }: IntrospectionArgs) {
-//   const queryName = introspectionQueryName || "IntrospectionQuery";
-
-//   let query = getIntrospectionQuery({
-//     inputValueDeprecation,
-//     schemaDescription,
-//   });
-//   if (introspectionQueryName) {
-//     query = query.replace("query IntrospectionQuery", `query ${queryName}`);
-//   }
-
-//   const querySansSubscriptions = query.replace("subscriptionType { name }", "");
-
-//   return {
-//     introspectionQueryName: queryName,
-//     introspectionQuery: query,
-//     introspectionQuerySansSubscriptions: querySansSubscriptions,
-//   };
-// }
-
-// const {
-//   introspectionQuery,
-//   introspectionQueryName,
-//   introspectionQuerySansSubscriptions,
-// } = useIntrospectionQuery({
-//   inputValueDeprecation: props.inputValueDeprecation,
-//   introspectionQueryName: props.introspectionQueryName,
-//   schemaDescription: props.schemaDescription,
-// });
-
-// watchEffect(() => {
-//   if (schema.value) {
-//     return;
-//   }
-// });
 </script>

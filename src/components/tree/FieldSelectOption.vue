@@ -4,7 +4,7 @@
     @change="
       emit('update:modelValue', ($event.target as HTMLInputElement).value)
     "
-    class="select w-full max-w-xs"
+    :class="props.selectClass"
   >
     <option disabled selected value="">Select Field</option>
     <option
@@ -12,22 +12,24 @@
       v-bind:key="field.name"
       :value="field.name"
     >
-      {{ useDisplayFieldName(field?.name, fieldRenames).displayFieldName }}
+      {{ getFieldDisplayName(field?.name) }}
     </option>
   </select>
 </template>
 <script setup lang="ts">
 import type { Fields } from "@/types";
-import { useDisplayFieldName } from "./DisplayFieldName";
-
-// type Selections = ReadonlyArray<SelectionNode>;
+import { useDisplayFieldName } from "../../composables/DisplayFieldName";
 
 const props = defineProps<{
   fields: Fields;
   modelValue?: string;
   fieldRenames?: Record<string, string>;
-  // selections: Selections;
-  // schema: GraphQLSchema;
+  selectClass?: string;
 }>();
 const emit = defineEmits(["update:modelValue"]);
+
+function getFieldDisplayName(field: string) {
+  const displayFieldName = useDisplayFieldName(field, props.fieldRenames);
+  return displayFieldName.displayFieldName;
+}
 </script>

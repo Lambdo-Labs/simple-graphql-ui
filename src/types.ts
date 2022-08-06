@@ -11,3 +11,7 @@ export type GraphQLSelectionNode = Omit<Mutable<FieldNode>, "selectionSet"> & {
 export type GraphQLSelectionSetNode = Omit<SelectionSetNode, "selections"> & {
   selections: Array<GraphQLSelectionNode>;
 };
+
+export interface GraphqlStore {
+  selectionSet: GraphQLSelectionSetNode | null;
+}

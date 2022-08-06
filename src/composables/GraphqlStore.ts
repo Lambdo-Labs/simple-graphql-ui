@@ -2,11 +2,11 @@ import { toRefs } from "@vueuse/core";
 import { reactive } from "vue";
 import { Kind, type DocumentNode, print, OperationTypeNode } from "graphql";
 
-import type { GraphQLSelectionSetNode } from "@/types";
+import type { GraphQLSelectionSetNode, GraphqlStore } from "@/types";
 
-interface GraphqlStore {
-  selectionSet: GraphQLSelectionSetNode | null;
-}
+const store: GraphqlStore = reactive({
+  selectionSet: null as GraphQLSelectionSetNode | null,
+});
 
 function toQuery(selectionSet: GraphQLSelectionSetNode | null) {
   if (!selectionSet) {
@@ -31,33 +31,7 @@ function toQuery(selectionSet: GraphQLSelectionSetNode | null) {
 
   return print(document);
 }
-
-const store: GraphqlStore = reactive({
-  selectionSet: null as GraphQLSelectionSetNode | null,
-
-  // operationName: null,
-  // operations: null,
-  // TODO: add setters for the above properties
-  // setDocumentAST(documentAST: GraphQLDocumentNode) {
-  //   this.documentAST.definitions[0] = documentAST.definitions[0];
-  // },
-
-  // documentToQuery() {
-  //   if (!this.documentAST) {
-  //     return "";
-  //   }
-  //   return print(this.documentAST);
-  // },
-  // addSelections(selections: FieldNode) {
-  //   if (!this.documentAST) {
-  //     return;
-  //   }
-  //   const selectionsNode = this.documentAST.definitions[0].selectionSet
-  //     .selections as Array<SelectionNode>;
-  //   selectionsNode.push(selections);
-  // },
-});
-
+/// A store used hold the graphql query selections
 export function useGraphqlStore() {
   function setRootSelectionSet(name: string) {
     store.selectionSet = {
