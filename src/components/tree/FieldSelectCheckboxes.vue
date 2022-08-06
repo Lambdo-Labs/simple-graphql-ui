@@ -17,6 +17,7 @@
       <div v-for="childField in fields" :key="childField.name">
         <FieldView
           :checkbox-class="props.checkboxClass"
+          :padding-class="props.paddingClass"
           v-model:parent-selection-set-node="fieldSelectionSet.selectionSet"
           :field="childField"
           :depth="depth + 1"
