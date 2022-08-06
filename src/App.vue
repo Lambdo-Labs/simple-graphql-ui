@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import GraphQLUI from "@/components/GraphQLUI.vue";
+import GraphQLUI from "@/components/GraphqlSimpleExplorer.vue";
 import testSchema from "@/assets/testSchema.json";
 import { useGraphqlStore } from "./composables/GraphqlStore";
 const { queryString, store } = useGraphqlStore();
