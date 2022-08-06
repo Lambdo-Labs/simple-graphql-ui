@@ -1,51 +1,21 @@
-# uigraphql
+# GraphQL Simple Explorer
 
-This template should help get you started developing with Vue 3 in Vite.
+## Example Usage
 
-Should be based off of:
-- https://github.com/jonathanawesome/graphiql-prototype
-- https://www.figma.com/file/p8f8MaG7ZRnuCc4lVv7w6t/GraphiQL-2.0?node-id=0%3A1
-- https://github.com/graphql/graphiql/tree/main/packages/graphiql-react
+```vue
+<template>
+    <GraphQLUI
+      checkbox-class="checkbox checkbox-xs"
+      select-class="select w-full max-w-xs"
+      padding-class="px-4"
+      :schema="testSchema"
+      :allowed-fields="['historicalinvoices']"
+      :fieldRenames="{ historicalinvoices: 'facturas', created_at: 'fecha' }"
+    />
+</template>
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+<script setup lang="ts">
+import GraphQLUI from "@/components/GraphqlSimpleExplorer.vue";
+import testSchema from "@/assets/testSchema.json";
+</script>
 ```
