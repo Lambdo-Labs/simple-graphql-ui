@@ -15,7 +15,7 @@
     <br />
     <div v-if="isFieldSelected">
       <div v-for="childField in fields" :key="childField.name">
-        <FieldView
+        <FieldSelectCheckboxes
           :checkbox-class="props.checkboxClass"
           :padding-class="props.paddingClass"
           v-model:parent-selection-set-node="fieldSelectionSet.selectionSet"
@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { unwrapOutputType } from "@/helper";
-import FieldView from "./FieldSelectCheckboxes.vue";
+import FieldSelectCheckboxes from "./FieldSelectCheckboxes.vue";
 import type { Field, GraphQLSelectionSetNode } from "@/types";
 import { isInterfaceType, isObjectType } from "graphql";
 import { useFieldSelectionSet } from "@/composables/FieldSelectionSet";

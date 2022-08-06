@@ -1,12 +1,12 @@
 <template>
-  <FieldSelect
+  <FieldSelectOption
     v-model="selectedField"
     :fields="queryTypeFields"
     :fieldRenames="fieldRenames"
     :select-class="props.selectClass"
   />
   <div v-if="selectedFieldObject && selectionSet">
-    <FieldView
+    <FieldSelectCheckboxes
       :checkbox-class="props.checkboxClass"
       :padding-class="props.paddingClass"
       :fieldRenames="fieldRenames"
@@ -19,8 +19,8 @@
 
 <script setup lang="ts">
 import { buildClientSchema, type IntrospectionQuery } from "graphql";
-import FieldSelect from "./tree/FieldSelectOption.vue";
-import FieldView from "./tree/FieldSelectCheckboxes.vue";
+import FieldSelectOption from "./tree/FieldSelectOption.vue";
+import FieldSelectCheckboxes from "./tree/FieldSelectCheckboxes.vue";
 import { ref, computed } from "vue";
 import { useGraphqlStore } from "@/composables/GraphqlStore";
 
