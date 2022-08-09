@@ -2,6 +2,18 @@
 
 ## Example Usage
 
+add from git:
+
+```bash
+yarn add Lambdo-Labs/simple-graphql-ui#main
+```
+
+```ts
+import { GraphqlSimpleExplorer } from `simple-graphql-ui`
+
+app.component('GraphqlSimpleExplorer',GraphqlSimpleExplorer )
+```
+
 ```vue
 <template>
     <GraphqlSimpleExplorer
@@ -15,13 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import GraphqlSimpleExplorer from "@/components/GraphqlSimpleExplorer.vue";
 import testSchema from "@/assets/testSchema.json";
 </script>
-```
-
-add from git:
-
-```bash
-yarn add Lambdo-Labs/simple-graphql-ui#main
 ```
