@@ -5,13 +5,16 @@
 add from git:
 
 ```bash
-yarn add Lambdo-Labs/simple-graphql-ui#main
+yarn add @lambdo/graphql-simple-explorer
 ```
 
 ```ts
-import { GraphqlSimpleExplorer } from `simple-graphql-ui`
+import graphqlSimplExplorer from '@lambdo/graphql-simple-explorer'
 
-app.component('GraphqlSimpleExplorer',GraphqlSimpleExplorer )
+createApp(App)
+  .use(graphqlSimplExplorer)
+  .mount('#app')
+
 ```
 
 ```vue
