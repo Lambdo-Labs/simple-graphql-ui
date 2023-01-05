@@ -36,6 +36,7 @@ import { isInterfaceType, isObjectType } from "graphql";
 import { useFieldSelectionSet } from "@/composables/FieldSelectionSet";
 import { computed, ref } from "vue";
 import { useDisplayFieldName } from "@/composables/DisplayFieldName";
+import { useVModel } from "@vueuse/core";
 // type Selections = ReadonlyArray<SelectionNode>;
 
 const props = defineProps<{

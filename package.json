@@ -1,6 +1,6 @@
 {
   "name": "@lambdo/graphql-simple-explorer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/lib/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -48,7 +48,6 @@
     "rollup-plugin-vue": "^6.0.0",
     "tailwindcss": "^3.0.23",
     "typescript": "~4.7.4",
-    "unplugin-auto-import": "^0.12.1",
     "vite": "^2.9.12",
     "vue-tsc": "^0.38.1"
   },

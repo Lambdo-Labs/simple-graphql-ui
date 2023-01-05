@@ -21,7 +21,7 @@
 import { buildClientSchema, type IntrospectionQuery } from "graphql";
 import FieldSelectOption from "./tree/FieldSelectOption.vue";
 import FieldSelectCheckboxes from "./tree/FieldSelectCheckboxes.vue";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useGraphqlStore } from "@/composables/GraphqlStore";
 
 const props = defineProps<{
