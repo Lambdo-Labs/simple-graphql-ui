@@ -1,5 +1,5 @@
 import { toRefs } from "@vueuse/core";
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import { Kind, type DocumentNode, print, OperationTypeNode } from "graphql";
 
 import type { GraphQLSelectionSetNode, GraphqlStore } from "@/types";

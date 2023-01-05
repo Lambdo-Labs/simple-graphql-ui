@@ -4,6 +4,7 @@ import type {
   GraphQLSelectionNode,
 } from "@/types";
 import { Kind } from "graphql";
+import { reactive, watch } from "vue";
 import type { Ref } from "vue";
 
 export function useFieldSelectionSet(
