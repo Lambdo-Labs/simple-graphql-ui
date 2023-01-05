@@ -9,10 +9,10 @@ yarn add @lambdo/graphql-simple-explorer
 ```
 
 ```ts
-import graphqlSimplExplorer from '@lambdo/graphql-simple-explorer'
+import { simpleExplorer, useGraphqlStore } from '@lambdo/graphql-simple-explorer'
 
 createApp(App)
-  .use(graphqlSimplExplorer)
+  .use(simpleExplorer)
   .mount('#app')
 
 ```
@@ -31,5 +31,7 @@ createApp(App)
 
 <script setup lang="ts">
 import testSchema from "@/assets/testSchema.json";
+import { useGraphqlStore } from "./composables/GraphqlStore";
+const { queryString, store } = useGraphqlStore();
 </script>
 ```
