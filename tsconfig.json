@@ -1,28 +1,22 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+	],
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    // "strict": true,
-    "lib": ["DOM", "ESNext"],
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false,
     "declaration": true,
-    "importsNotUsedAsValues": "remove",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "jsx": "preserve",
-    "removeComments": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "skipLibCheck": true,
-    "declarationDir": "dist",
-    "emitDeclarationOnly": true,
-    "resolveJsonModule": true,
-  "esModuleInterop": true,
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*", "src/_daisyui"]
+
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
 }
