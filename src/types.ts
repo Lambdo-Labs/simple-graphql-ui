@@ -14,4 +14,5 @@ export type GraphQLSelectionSetNode = Omit<SelectionSetNode, "selections"> & {
 
 export interface GraphqlStore {
   selectionSet: GraphQLSelectionSetNode | null;
+  queryName: string;
 }

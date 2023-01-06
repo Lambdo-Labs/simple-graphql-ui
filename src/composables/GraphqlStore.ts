@@ -6,6 +6,7 @@ import type { GraphQLSelectionSetNode, GraphqlStore } from "../types";
 
 const store: GraphqlStore = reactive({
   selectionSet: null as GraphQLSelectionSetNode | null,
+  queryName: "query"
 });
 
 function toQuery(selectionSet: GraphQLSelectionSetNode | null) {
@@ -20,7 +21,7 @@ function toQuery(selectionSet: GraphQLSelectionSetNode | null) {
         operation: OperationTypeNode.QUERY,
         name: {
           kind: Kind.NAME,
-          value: "test",
+          value: store.queryName,
         },
         variableDefinitions: [],
         directives: undefined,
@@ -54,8 +55,13 @@ export function useGraphqlStore() {
       ],
     };
   }
+
+  function setQueryName(name: string) {
+    store.queryName = name;
+  }
+
   const refStore = toRefs(store);
 
   const queryString = computed(() => toQuery(refStore.selectionSet.value));
-  return { store: refStore, setRootSelectionSet, queryString };
+  return { store: refStore, setRootSelectionSet, queryString, setQueryName };
 }
