@@ -2,7 +2,7 @@ import type {
   Field,
   GraphQLSelectionSetNode,
   GraphQLSelectionNode,
-} from "@/types";
+} from "../types";
 import { Kind } from "graphql";
 import { reactive, watch } from "vue";
 import type { Ref } from "vue";

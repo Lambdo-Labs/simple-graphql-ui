@@ -17,7 +17,7 @@
   </select>
 </template>
 <script setup lang="ts">
-import type { Fields } from "@/types";
+import type { Fields } from "../../types";
 import { useDisplayFieldName } from "../../composables/DisplayFieldName";
 
 const props = defineProps<{

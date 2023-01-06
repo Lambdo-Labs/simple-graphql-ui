@@ -29,13 +29,13 @@
 </template>
 
 <script setup lang="ts">
-import { unwrapOutputType } from "@/helper";
+import { unwrapOutputType } from "../../helper";
 import FieldSelectCheckboxes from "./FieldSelectCheckboxes.vue";
-import type { Field, GraphQLSelectionSetNode } from "@/types";
+import type { Field, GraphQLSelectionSetNode } from "../../types";
 import { isInterfaceType, isObjectType } from "graphql";
-import { useFieldSelectionSet } from "@/composables/FieldSelectionSet";
+import { useFieldSelectionSet } from "../../composables/FieldSelectionSet";
 import { computed, ref } from "vue";
-import { useDisplayFieldName } from "@/composables/DisplayFieldName";
+import { useDisplayFieldName } from "../../composables/DisplayFieldName";
 import { useVModel } from "@vueuse/core";
 // type Selections = ReadonlyArray<SelectionNode>;
 

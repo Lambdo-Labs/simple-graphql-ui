@@ -1,4 +1,4 @@
-import { useGraphqlStore } from '@/composables/GraphqlStore';
+import { useGraphqlStore } from './composables/GraphqlStore';
 import GraphqlSimpleExplorer from "./components/GraphqlSimpleExplorer.vue";
 import FieldSelectCheckboxes from "./components/tree/FieldSelectCheckboxes.vue";
 import FieldSelectOption from "./components/tree/FieldSelectOption.vue";

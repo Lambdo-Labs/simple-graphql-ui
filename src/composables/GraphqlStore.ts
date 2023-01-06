@@ -2,7 +2,7 @@ import { toRefs } from "@vueuse/core";
 import { computed, reactive } from "vue";
 import { Kind, type DocumentNode, print, OperationTypeNode } from "graphql";
 
-import type { GraphQLSelectionSetNode, GraphqlStore } from "@/types";
+import type { GraphQLSelectionSetNode, GraphqlStore } from "../types";
 
 const store: GraphqlStore = reactive({
   selectionSet: null as GraphQLSelectionSetNode | null,
