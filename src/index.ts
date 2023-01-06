@@ -4,7 +4,7 @@ import FieldSelectOption from "@/components/tree/FieldSelectOption.vue";
 import { useGraphqlStore } from "@/composables/GraphqlStore";
 import type { App } from "vue";
 
-const simpleExplorer = {
+export const simpleExplorer = {
   install(Vue: App) {
     Vue.component("GraphqlSimpleExplorer", GraphqlSimpleExplorer);
     Vue.component("GraphqlSimpleFieldSelectCheckboxes", FieldSelectCheckboxes);
@@ -12,4 +12,4 @@ const simpleExplorer = {
   },
 };
 
-export { simpleExplorer, useGraphqlStore };
+export useGraphqlStore;
