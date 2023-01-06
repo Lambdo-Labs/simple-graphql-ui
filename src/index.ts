@@ -12,4 +12,4 @@ export const simpleExplorer = {
   },
 };
 
-export useGraphqlStore
+export const useSimpleGraphqlStore = useGraphqlStore;
